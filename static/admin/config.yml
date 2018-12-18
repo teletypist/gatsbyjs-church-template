@@ -1,5 +1,6 @@
 backend:
-    name: test-repo
+    name: github
+    repo: teletypist/think-gatsbyjs-cms-startar
 
 media_folder: static/assets
 public_folder: assets
