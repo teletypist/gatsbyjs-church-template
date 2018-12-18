@@ -18,10 +18,15 @@ collections:
       folder: src/pages/products
       create: true
       fields:
-        - { name: title, label: Title }
         - { name: sku, label: SKU }
-        - { name: price, label: Price, widget: number }
         - { name: category, label: Category, widget: relation, collection: category, searchFields: ["title"], valueField: title }
-        - { name: thumbnail, label: Image, widget: image }
-        - { name: description, label: Description, widget: text }
-        - { name: tags, label: Tags, widget: list }
+        - label: Variants
+          name: variants
+          widget: list
+          fields:
+            - { name: name, label: Name }
+            - { name: price, label: "Price (cents)", widget: number }
+            - { name: thumbnail, label: Thumbnail, widget: image, required: false }
+        - { name: feature, label: "Feature Image", widget: image, required: false }
+        - { name: description, label: Description, widget: text, required: false }
+        - { name: tags, label: Tags, widget: list, required: false }
