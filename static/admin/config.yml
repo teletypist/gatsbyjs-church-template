@@ -8,14 +8,14 @@ public_folder: assets
 collections:
     - name: category
       label: Category
-      folder: pages/categories
+      folder: src/pages/categories
       create: true
       fields:
         - { name: title, label: Title }
         - { name: hasCustom, label: "Custom Option Available", widget: boolean, required: false }
     - name: product
       label: Product
-      folder: pages/products
+      folder: src/pages/products
       create: true
       fields:
         - { name: title, label: Title }
