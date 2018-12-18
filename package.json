@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "gatsby-starter-think-gocommerce",
+  "description": "Gatsby Netlify CMS GoCommerce starter",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
