@@ -8,14 +8,16 @@ public_folder: assets
 collections:
     - name: category
       label: Category
-      folder: src/pages/categories
+      folder: src/store/categories
+      format: json
       create: true
       fields:
         - { name: title, label: Title }
         - { name: hasCustom, label: "Custom Option Available", widget: boolean, required: false }
     - name: product
       label: Product
-      folder: src/pages/products
+      folder: src/store/products
+      format: json
       create: true
       identifier_field: sku
       fields:
