@@ -1,0 +1,15 @@
+{
+  "sku": "WS242",
+  "category": "Season's Best",
+  "variants": [
+    {
+      "name": "Standard",
+      "price": "7200"
+    },
+    {
+      "name": "Premium",
+      "price": "8998"
+    }
+  ],
+  "feature": "/assets/ws242.jpg"
+}
