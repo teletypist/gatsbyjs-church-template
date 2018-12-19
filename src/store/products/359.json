@@ -1,0 +1,15 @@
+{
+  "sku": "359",
+  "category": "Bouquets",
+  "variants": [
+    {
+      "name": "Standard",
+      "price": "13000"
+    },
+    {
+      "name": "Premium",
+      "price": "15700"
+    }
+  ],
+  "feature": "/assets/359.jpg"
+}
