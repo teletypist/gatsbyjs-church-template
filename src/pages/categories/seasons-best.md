@@ -1,4 +1,0 @@
----
-title: Season's Best
----
-
