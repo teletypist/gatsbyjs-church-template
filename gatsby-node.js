@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+/*exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `CategoriesJson`) {
@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+/*exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
     graphql(`
@@ -47,4 +47,4 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
-}
+}*/

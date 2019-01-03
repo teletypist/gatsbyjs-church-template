@@ -1,35 +1,103 @@
 backend:
-    name: github
-    repo: teletypist/think-gatsbyjs-cms-starter
+    name: git-gateway
+    accept_roles:
+      - admin
+      - editor
 
 media_folder: static/assets
 public_folder: assets
 
 collections:
-    - name: category
-      label: Category
-      folder: src/store/categories
+    - name: members
+      label: Members
+      folder: src/data/members
+      format: json
+      create: true
+      identifier_field: fullname
+      fields:
+       - { name: fullname, label: "Full Name" }
+       - { name: preferred, label: "Preferred Name" }
+       - { name: email, label: Email, required: false }
+       - { name: phone, label: Phone, required: false }
+       - { name: birthday, label: Birthday, widget: date, default: "", format: "Do MMM YYYY", dateFormat: "Do MMM YYYY", required: false }
+
+    - name: families
+      label: Families
+      folder: src/data/families
+      format: json
+      create: true
+      identifier_field: email
+      fields:
+        - { name: surname, label: "Last Name" }
+        - { name: email, label: "Primary Email" }
+        - { name: phone, label: "Primary Phone" }
+        - label: Members
+          widget: list
+          name: members
+          default: []
+          field: { name: member, widget: relation, label: Member, collection: members, searchFields: ["fullname", "preferred"], valueField: fullname }
+        - label: Dependents
+          name: dependents
+          widget: list
+          required: false
+          default: []
+          fields:
+            - { name: name, label: Name }
+            - { name: birthday, label: Birthday, widget: date, default: "", format: "Do MMM YYYY", dateFormat: "Do MMM YYYY", required: false }
+            - { name: kids_church, label: "Attends Kids Church", widget: boolean, default: true }
+          
+    - name: roles
+      label: Roles
+      folder: src/data/roles
       format: json
       create: true
       fields:
         - { name: title, label: Title }
-        - { name: hasCustom, label: "Custom Option Available", widget: boolean, required: false }
-    - name: product
-      label: Product
-      folder: src/store/products
+        - { name: arrival, label: "Preferred Arrival Time", widget: datetime, format: "hh:mma", required: false, dateFormat: false, timeFormat: "hh:mma" }
+        - { name: description, label: Description, widget: markdown }
+
+    - name: music
+      label: Songs
+      folder: src/data/songs
       format: json
       create: true
-      identifier_field: sku
       fields:
-        - { name: sku, label: SKU }
-        - { name: category, label: Category, widget: relation, collection: category, searchFields: ["title"], valueField: title }
-        - label: Variants
-          name: variants
+        - { name: title, label: Title }
+        - { name: ccli, label: CCLI, required: false }
+        - { name: slides, label: Slides, required: false, widget: file }
+        - name: music
+          label: Music
           widget: list
+          default: []
+          required: false
+          field: { name: file, widget: file, label: File }
+
+    - name: services
+      label: Services
+      folder: src/data/services
+      format: json
+      create: true
+      identifier_field: date
+      fields:
+        - { name: date, label: Date, widget: date, default: "", format: "Do MMM YYYY" }
+        - label: Type
+          name: type
+          widget: select
+          default: "Sunday Service"
+          options: ["Sunday Service", "Connect Sunday", "Special Service"]
+        - { name: title, label: Title, required: false }
+        - { name: preacher, label: Preacher, required: false }
+        - label: Songs
+          name: songs
+          widget: list
+          required: false
+          default: []
+          field: { name: song, label: Song, widget: relation, collection: music, valueField: "title", searchFields: ["title"] }
+        - label: roles
+          name: Roster
+          widget: list
+          default: []
+          required: false
           fields:
-            - { name: name, label: Name }
-            - { name: price, label: "Price (cents)", widget: number }
-            - { name: thumbnail, label: Thumbnail, widget: image, required: false }
-        - { name: feature, label: "Feature Image", widget: image, required: false }
-        - { name: description, label: Description, widget: text, required: false }
-        - { name: tags, label: Tags, widget: list, required: false }
+            - { name: role, label: Role, widget: relation, collection: roles, searchFields: ["title"], valueField: "title" }
+            - { name: member, label: Member, widget: relation, collection: members, searchFields: ["fullname", "preferred"], valueField: "fullname"}

@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-think-gocommerce",
-  "description": "Gatsby Netlify CMS GoCommerce starter",
+  "name": "gatsbyjs-netlify-cms-church-starter",
+  "description": "Gatsby Netlify CMS Church starter",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
