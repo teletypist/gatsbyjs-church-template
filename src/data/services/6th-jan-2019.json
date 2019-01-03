@@ -1,0 +1,16 @@
+{
+  "date": "6th Jan 2019",
+  "type": "Sunday Service",
+  "title": "The Gospel",
+  "preacher": "Ps John Bake",
+  "songs": [
+    "Shine Jesus Shine",
+    "Have Faith in God"
+  ],
+  "Roster": [
+    {
+      "role": "Setup",
+      "member": "Ps John Bake"
+    }
+  ]
+}
